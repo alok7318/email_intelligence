@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "creation": "2026-06-02 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": ["sender_email", "account_suffix", "bank_account"],
+ "fields": [
+  {
+   "fieldname": "sender_email",
+   "fieldtype": "Data",
+   "label": "Sender Email",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "e.g. alert@ebl.com.np"
+  },
+  {
+   "fieldname": "account_suffix",
+   "fieldtype": "Data",
+   "label": "Account Number Suffix",
+   "in_list_view": 1,
+   "description": "Last 6 digits of the bank account number in the alert email (e.g. 201393)"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Bank Account",
+   "reqd": 1,
+   "in_list_view": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-02 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Email Intelligence",
+ "name": "EI Bank Sender",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

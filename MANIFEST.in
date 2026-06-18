@@ -1,0 +1,2 @@
+include MANIFEST.in
+recursive-include email_intelligence *.json *.js *.css *.html *.csv *.md

@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "autoname": "field:company",
+ "creation": "2026-06-02 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "enabled",
+  "own_domains_section",
+  "own_domains",
+  "quote_keywords",
+  "bank_senders_section",
+  "bank_senders",
+  "swift_senders_section",
+  "swift_senders",
+  "swift_bank_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "own_domains_section",
+   "fieldtype": "Section Break",
+   "label": "Email Filters"
+  },
+  {
+   "fieldname": "own_domains",
+   "fieldtype": "Small Text",
+   "label": "Own Domains (skip these senders — one per line)",
+   "description": "Emails sent from these domains will be ignored (your own company domains)"
+  },
+  {
+   "fieldname": "quote_keywords",
+   "fieldtype": "Small Text",
+   "label": "Quote Request Keywords (comma separated)",
+   "default": "rate,quotation,quote,price,inquiry,enquiry,requirement,kindly send",
+   "description": "If subject or body contains any of these words, treat as a quote request"
+  },
+  {
+   "fieldname": "bank_senders_section",
+   "fieldtype": "Section Break",
+   "label": "Bank Transaction Alert Senders"
+  },
+  {
+   "fieldname": "bank_senders",
+   "fieldtype": "Table",
+   "label": "Bank Alert Senders",
+   "options": "EI Bank Sender"
+  },
+  {
+   "fieldname": "swift_senders_section",
+   "fieldtype": "Section Break",
+   "label": "SWIFT / RTGS Notification Senders"
+  },
+  {
+   "fieldname": "swift_senders",
+   "fieldtype": "Table",
+   "label": "SWIFT / RTGS Senders",
+   "options": "EI Swift Sender"
+  },
+  {
+   "fieldname": "swift_bank_account",
+   "fieldtype": "Link",
+   "label": "Default Bank Account for SWIFT/RTGS",
+   "options": "Bank Account",
+   "description": "Bank Account used when making outgoing SWIFT/RTGS payments"
+  }
+ ],
+ "links": [],
+ "modified": "2026-06-02 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Email Intelligence",
+ "name": "Email Intelligence Config",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
