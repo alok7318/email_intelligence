@@ -1,0 +1,134 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"ei_h1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Configuration</span>\",\"col\":12}},{\"id\":\"ei_s1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Email Intelligence Config\",\"col\":4}},{\"id\":\"ei_s2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Email Account\",\"col\":4}},{\"id\":\"ei_sp1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ei_h2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Inbox Categories</span>\",\"col\":12}},{\"id\":\"ei_c1\",\"type\":\"card\",\"data\":{\"card_name\":\"Bank & Payments\",\"col\":4}},{\"id\":\"ei_c2\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales & CRM\",\"col\":4}},{\"id\":\"ei_c3\",\"type\":\"card\",\"data\":{\"card_name\":\"Email Settings\",\"col\":4}}]",
+ "creation": "2026-06-18 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "mail",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "Email Intelligence",
+ "module": "Email Intelligence",
+ "name": "Email Intelligence",
+ "owner": "Administrator",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Bank & Payments",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Bank Transaction",
+   "link_count": 0,
+   "link_to": "Bank Transaction",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Payment Entry",
+   "link_count": 0,
+   "link_to": "Payment Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sales & CRM",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Lead",
+   "link_count": 0,
+   "link_to": "Lead",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Opportunity",
+   "link_count": 0,
+   "link_to": "Opportunity",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Customer",
+   "link_count": 0,
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Email Settings",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Email Intelligence Config",
+   "link_count": 0,
+   "link_to": "Email Intelligence Config",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Email Account",
+   "link_count": 0,
+   "link_to": "Email Account",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "format": "{} Unreconciled",
+   "label": "Email Intelligence Config",
+   "link_to": "Email Intelligence Config",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "label": "Email Account",
+   "link_to": "Email Account",
+   "type": "DocType"
+  }
+ ],
+ "modified": "2026-06-18 00:00:00.000000",
+ "modified_by": "Administrator"
+}

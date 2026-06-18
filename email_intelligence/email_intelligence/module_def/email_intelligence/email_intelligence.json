@@ -1,0 +1,11 @@
+{
+ "app_name": "email_intelligence",
+ "creation": "2026-06-18 00:00:00.000000",
+ "doctype": "Module Def",
+ "modified": "2026-06-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module_name": "Email Intelligence",
+ "name": "Email Intelligence",
+ "owner": "Administrator",
+ "restrict_to_domain": ""
+}
