@@ -2,9 +2,20 @@ import re
 import frappe
 from frappe.utils import getdate, nowdate
 
-# Pipe-delimited row used by EBL and Nabil alert emails:
-# 2026-06-01 17:37 | Debit | 2,280.00 | [optional balance] | Remarks text
+# EBL / Nabil HTML alert emails (after HTML stripping):
+# 2026-06-17 16:04 Credit 121,600.00 For: 000082943426 ...
+# 2026-06-17 16:04 Credit 121,600.00 658,216.94 -VEGA PHARMACEUTICALS ...  (Nabil includes balance)
 TXN_ROW_PATTERN = re.compile(
+    r"(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2})\s+"   # date + time
+    r"(Debit|Credit)\s+"                         # type
+    r"([\d,]+\.?\d*)\s+"                         # amount
+    r"(?:[\d,]+\.?\d*\s+)?"                      # optional balance (Nabil)
+    r"(.+?)(?:\s+Enjoy|\s+Thank you|$)",          # remarks until footer
+    re.IGNORECASE,
+)
+
+# Legacy pipe-delimited format (kept for compatibility)
+TXN_ROW_PATTERN_PIPE = re.compile(
     r"(\d{4}-\d{2}-\d{2}[\s\d:]+)\s*\|\s*(Debit|Credit)\s*\|\s*([\d,]+\.?\d*)"
     r"(?:\s*\|\s*([\d,]+\.?\d*))?"
     r"\s*\|\s*(.+?)(?:\s*\||\s*$)",
@@ -51,17 +62,24 @@ def parse_and_save(sender, body, config):
     bank_account = _find_bank_account(body, config)
 
     m = TXN_ROW_PATTERN.search(body)
-    if not m:
-        frappe.log_error(
-            f"Bank parser: no transaction row found\nSender: {sender}\nBody: {body[:500]}",
-            "Email Intelligence",
-        )
-        return None
-
-    txn_date_raw = m.group(1).strip()
-    txn_type = m.group(2).strip()
-    amount_raw = m.group(3).strip()
-    remarks = m.group(5).strip()
+    if m:
+        txn_date_raw = m.group(1).strip()
+        txn_type     = m.group(2).strip()
+        amount_raw   = m.group(3).strip()
+        remarks      = m.group(4).strip()
+    else:
+        # Try legacy pipe-delimited format
+        m = TXN_ROW_PATTERN_PIPE.search(body)
+        if not m:
+            frappe.log_error(
+                f"Bank parser: no transaction row found\nSender: {sender}\nBody: {body[:500]}",
+                "Email Intelligence",
+            )
+            return None
+        txn_date_raw = m.group(1).strip()
+        txn_type     = m.group(2).strip()
+        amount_raw   = m.group(3).strip()
+        remarks      = m.group(5).strip()
 
     try:
         txn_date = getdate(txn_date_raw.split()[0])
